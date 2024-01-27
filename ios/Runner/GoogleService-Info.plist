@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CLIENT_ID</key>
+	<string>896672766195-s6751r5mafg3nejg1sh99i3actrm5ga3.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.896672766195-s6751r5mafg3nejg1sh99i3actrm5ga3</string>
+	<key>API_KEY</key>
+	<string>AIzaSyDn3px5_RQnVg4c3Tm5pp26rSB1m6e5hqI</string>
+	<key>GCM_SENDER_ID</key>
+	<string>896672766195</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>com.luckyalma.chatapp</string>
+	<key>PROJECT_ID</key>
+	<string>flutter-database-f6af4</string>
+	<key>STORAGE_BUCKET</key>
+	<string>flutter-database-f6af4.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<false></false>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<true></true>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:896672766195:ios:de968be7b092d44d81ff86</string>
+	<key>DATABASE_URL</key>
+	<string>https://flutter-database-f6af4-default-rtdb.asia-southeast1.firebasedatabase.app</string>
+	<key>GIDClientID</key>
+	<!-- TODO Replace this value: -->
+	<!-- Copied from GoogleService-Info.plist key CLIENT_ID -->
+	<string>896672766195-s6751r5mafg3nejg1sh99i3actrm5ga3.apps.googleusercontent.com</string>
+	<!-- Put me in the [my_project]/ios/Runner/Info.plist file -->
+	<!-- Google Sign-in Section -->
+	<key>CFBundleURLTypes</key>
+	<array>
+		<dict>
+			<key>CFBundleTypeRole</key>
+			<string>Editor</string>
+			<key>CFBundleURLSchemes</key>
+			<array>
+				<!-- TODO Replace this value: -->
+				<!-- Copied from GoogleService-Info.plist key REVERSED_CLIENT_ID -->
+				<string>com.googleusercontent.apps.896672766195-s6751r5mafg3nejg1sh99i3actrm5ga3</string>
+			</array>
+		</dict>
+	</array>
+	<!-- End of the Google Sign-in Section -->
+	
+	
+</dict>
+</plist>
