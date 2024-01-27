@@ -6,7 +6,6 @@ import 'package:get/get.dart';
 
 import 'package:chatapp/app/utils/error_screen.dart';
 import 'package:chatapp/app/utils/loading_screen.dart';
-import 'package:chatapp/app/utils/splash_screen.dart';
 import 'package:chatapp/firebase_options.dart';
 import 'package:google_fonts/google_fonts.dart';
 
@@ -40,12 +39,13 @@ class MyApp extends StatelessWidget {
         if (snapshot.connectionState == ConnectionState.done) {
           return GetMaterialApp(
             title: 'Chat App',
+            debugShowCheckedModeBanner: false,
             theme: ThemeData(
               useMaterial3: false,
               textTheme: GoogleFonts.outfitTextTheme(),
               primaryTextTheme: GoogleFonts.outfitTextTheme(),
             ),
-            initialRoute: Routes.LOGIN,
+            initialRoute: Routes.PROFILE,
             getPages: AppPages.routes,
           );
           // return FutureBuilder(
