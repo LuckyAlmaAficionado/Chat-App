@@ -17,6 +17,7 @@ dependencies:
   hexcolor: 3.0.1
   gap: 3.0.1
   avatar_glow: 3.0.1
+  emoji_picker_flutter: 1.6.4
   flutter: 
     sdk: flutter
 

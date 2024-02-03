@@ -45,7 +45,7 @@ class MyApp extends StatelessWidget {
               textTheme: GoogleFonts.outfitTextTheme(),
               primaryTextTheme: GoogleFonts.outfitTextTheme(),
             ),
-            initialRoute: Routes.CHANGE_PROFILE,
+            initialRoute: Routes.CHAT_ROOM,
             getPages: AppPages.routes,
           );
           // return FutureBuilder(
