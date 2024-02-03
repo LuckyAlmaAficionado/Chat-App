@@ -1,3 +1,4 @@
+import 'package:chatapp/app/controllers/auth_controller.dart';
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
 
@@ -7,9 +8,11 @@ import 'package:google_fonts/google_fonts.dart';
 import '../controllers/update_status_controller.dart';
 
 class UpdateStatusView extends GetView<UpdateStatusController> {
-  const UpdateStatusView({Key? key}) : super(key: key);
+  final authC = Get.find<AuthController>();
+
   @override
   Widget build(BuildContext context) {
+    controller.statusC.text = authC.user.value.status!;
     return Scaffold(
         appBar: AppBar(
           title: const Text('Update Status'),
@@ -47,7 +50,9 @@ class UpdateStatusView extends GetView<UpdateStatusController> {
               Container(
                 width: Get.width,
                 child: ElevatedButton(
-                  onPressed: () {},
+                  onPressed: () {
+                    authC.updateStatus(controller.statusC.text);
+                  },
                   child: Text('UPDATE'),
                   style: ElevatedButton.styleFrom(
                     backgroundColor: Colors.blue[900],

@@ -1,4 +1,5 @@
 import 'package:avatar_glow/avatar_glow.dart';
+import 'package:chatapp/app/controllers/auth_controller.dart';
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
 
@@ -8,9 +9,13 @@ import 'package:google_fonts/google_fonts.dart';
 import '../controllers/change_profile_controller.dart';
 
 class ChangeProfileView extends GetView<ChangeProfileController> {
-  const ChangeProfileView({Key? key}) : super(key: key);
+  final authC = Get.find<AuthController>();
+
   @override
   Widget build(BuildContext context) {
+    controller.emailC.text = authC.user.value.email ?? "";
+    controller.nameC.text = authC.user.value.name ?? "";
+    controller.statusC.text = authC.user.value.status ?? '';
     return Scaffold(
         appBar: AppBar(
           title: const Text('Change Profile'),
@@ -18,7 +23,13 @@ class ChangeProfileView extends GetView<ChangeProfileController> {
           centerTitle: true,
           actions: [
             IconButton(
-              onPressed: () {},
+              onPressed: () {
+                // INFO: Change Profilex
+                authC.changeProfile(
+                  controller.nameC.text,
+                  controller.statusC.text,
+                );
+              },
               icon: Icon(Icons.save),
             )
           ],
@@ -48,6 +59,7 @@ class ChangeProfileView extends GetView<ChangeProfileController> {
             TextField(
               controller: controller.emailC,
               cursorColor: Colors.black,
+              readOnly: true,
               decoration: InputDecoration(
                 label: Text('Email'),
                 labelStyle: GoogleFonts.outfit(
@@ -96,6 +108,13 @@ class ChangeProfileView extends GetView<ChangeProfileController> {
             TextField(
               controller: controller.statusC,
               cursorColor: Colors.black,
+              onEditingComplete: () {
+                // INFO: Change Profilex
+                authC.changeProfile(
+                  controller.nameC.text,
+                  controller.statusC.text,
+                );
+              },
               decoration: InputDecoration(
                 label: Text('Status'),
                 labelStyle: GoogleFonts.outfit(
@@ -139,7 +158,13 @@ class ChangeProfileView extends GetView<ChangeProfileController> {
             Container(
               width: Get.width,
               child: ElevatedButton(
-                onPressed: () {},
+                onPressed: () {
+                  // INFO: Change Profilex
+                  authC.changeProfile(
+                    controller.nameC.text,
+                    controller.statusC.text,
+                  );
+                },
                 child: Text('UPDATE'),
                 style: ElevatedButton.styleFrom(
                   backgroundColor: Colors.blue[900],

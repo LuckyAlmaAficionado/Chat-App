@@ -13,24 +13,25 @@ class ProfileView extends GetView<ProfileController> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar: AppBar(
-          backgroundColor: Colors.blue[900],
-          leading: IconButton(
-            onPressed: () => Get.back(),
-            icon: Icon(Icons.arrow_back),
-          ),
-          title: const Text('ProfileView'),
-          centerTitle: true,
-          actions: [
-            IconButton(
-              onPressed: () {
-                authC.logout();
-              },
-              icon: Icon(Icons.logout),
-            ),
-          ],
+      appBar: AppBar(
+        backgroundColor: Colors.blue[900],
+        leading: IconButton(
+          onPressed: () => Get.back(),
+          icon: Icon(Icons.arrow_back),
         ),
-        body: Column(
+        title: const Text('ProfileView'),
+        centerTitle: true,
+        actions: [
+          IconButton(
+            onPressed: () {
+              authC.logout();
+            },
+            icon: Icon(Icons.logout),
+          ),
+        ],
+      ),
+      body: Obx(
+        () => Column(
           children: [
             Container(
               margin: const EdgeInsets.only(top: 50),
@@ -40,20 +41,23 @@ class ProfileView extends GetView<ProfileController> {
                     duration: const Duration(milliseconds: 500),
                     glowRadiusFactor: 0.15,
                     glowColor: Colors.blue,
-                    child: Container(
-                      width: 175,
-                      height: 175,
-                      decoration: BoxDecoration(
-                          color: Colors.black38,
-                          borderRadius: BorderRadius.circular(100),
-                          image: DecorationImage(
-                            image: AssetImage('assets/logo/user.png'),
-                          )),
+                    child: ClipRRect(
+                      borderRadius: BorderRadius.circular(100),
+                      child: Container(
+                        width: 175,
+                        height: 175,
+                        child: authC.user.value.photoUrl != null
+                            ? Image.network(
+                                '${authC.user.value.photoUrl}',
+                                fit: BoxFit.cover,
+                              )
+                            : Image.asset('assets/logo/user.png'),
+                      ),
                     ),
                   ),
                   const Gap(15),
                   Text(
-                    'Lorem Ipsum',
+                    '${authC.user.value.name}',
                     textAlign: TextAlign.center,
                     style: TextStyle(
                       fontSize: 22,
@@ -61,7 +65,7 @@ class ProfileView extends GetView<ProfileController> {
                     ),
                   ),
                   Text(
-                    'Lorem.Ipsum@gmail.com',
+                    '${authC.user.value.email}',
                     textAlign: TextAlign.center,
                     style: TextStyle(
                       fontWeight: FontWeight.normal,
@@ -130,6 +134,8 @@ class ProfileView extends GetView<ProfileController> {
               ),
             ),
           ],
-        ));
+        ),
+      ),
+    );
   }
 }
