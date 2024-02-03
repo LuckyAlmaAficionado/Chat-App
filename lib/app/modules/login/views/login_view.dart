@@ -1,3 +1,4 @@
+import 'package:chatapp/app/controllers/auth_controller.dart';
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
 
@@ -7,7 +8,8 @@ import 'package:lottie/lottie.dart';
 import '../controllers/login_controller.dart';
 
 class LoginView extends GetView<LoginController> {
-  const LoginView({Key? key}) : super(key: key);
+  final authC = Get.find<AuthController>();
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -25,7 +27,9 @@ class LoginView extends GetView<LoginController> {
                 ),
                 const Gap(100),
                 ElevatedButton(
-                  onPressed: () {},
+                  onPressed: () {
+                    authC.login();
+                  },
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
@@ -53,12 +57,12 @@ class LoginView extends GetView<LoginController> {
                     shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(20),
                     ),
-                    backgroundColor: Colors.blue.shade600,
+                    backgroundColor: Colors.blue.shade900,
                   ),
                 ),
                 const Gap(50),
                 Text('chat app'),
-                Text('V.1.0'),
+                Text('V.1.1'),
               ],
             ),
           ),

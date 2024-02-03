@@ -1,4 +1,6 @@
 import 'package:avatar_glow/avatar_glow.dart';
+import 'package:chatapp/app/controllers/auth_controller.dart';
+import 'package:chatapp/app/routes/app_pages.dart';
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
 
@@ -7,7 +9,7 @@ import 'package:get/get.dart';
 import '../controllers/profile_controller.dart';
 
 class ProfileView extends GetView<ProfileController> {
-  const ProfileView({Key? key}) : super(key: key);
+  final authC = Get.find<AuthController>();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -21,7 +23,9 @@ class ProfileView extends GetView<ProfileController> {
           centerTitle: true,
           actions: [
             IconButton(
-              onPressed: () {},
+              onPressed: () {
+                authC.logout();
+              },
               icon: Icon(Icons.logout),
             ),
           ],
@@ -75,7 +79,7 @@ class ProfileView extends GetView<ProfileController> {
                   children: [
                     Card(
                       child: ListTile(
-                        onTap: () {},
+                        onTap: () => Get.toNamed(Routes.UPDATE_STATUS),
                         leading: Icon(Icons.note_add_outlined),
                         trailing: Icon(
                           Icons.arrow_right,
@@ -89,7 +93,7 @@ class ProfileView extends GetView<ProfileController> {
                     ),
                     Card(
                       child: ListTile(
-                        onTap: () {},
+                        onTap: () => Get.toNamed(Routes.CHANGE_PROFILE),
                         leading: Icon(Icons.person),
                         trailing: Icon(
                           Icons.arrow_right,

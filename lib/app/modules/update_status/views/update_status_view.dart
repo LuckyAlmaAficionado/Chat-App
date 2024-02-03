@@ -21,6 +21,7 @@ class UpdateStatusView extends GetView<UpdateStatusController> {
           child: Column(
             children: [
               TextField(
+                controller: controller.statusC,
                 cursorColor: Colors.black,
                 decoration: InputDecoration(
                   label: Text('Status'),
