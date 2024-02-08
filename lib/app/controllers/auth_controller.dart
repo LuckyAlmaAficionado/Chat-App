@@ -326,6 +326,8 @@ class AuthController extends GetxController {
         // tidak ada data chats
         // ..... sudah pernah memiliki koneksi email
         // ..... belum pernah memiliki koneksi email
+
+        // .. membuat sebuah koneksi doc chats
         final docIdChat = await chatsRef.add({
           "connections": {
             _currentUser!.email,
